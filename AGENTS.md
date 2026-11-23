@@ -51,8 +51,9 @@ a full authoring environment or a simulation runtime.
 - **Compliance is explicit.** `check_compliance()` is never run implicitly.
 - **Round-trip preservation.** Codecs preserve element order, annotations, and
   extensions.
-- **Standard library XML.** Parse with `xml.etree.ElementTree`; do not add lxml
-  or another XML dependency.
+- **Standard library XML for documents.** Document codecs parse and serialize
+  with `xml.etree.ElementTree`. `lxml` is limited to XSD schema validation
+  (`common/xml_schema_validation.py`); do not add another XML dependency.
 
 ## Code guidelines
 
@@ -82,8 +83,7 @@ This is experimental software:
 - Keep reference material in `docs/command_reference.md`, not in onboarding
   pages.
 - Organize docs by audience: `docs/user/` for user workflows, `docs/dev/` for
-  maintainer and implementation notes, `docs/integrations/` for external system
-  integrations.
+  maintainer and implementation notes.
 - Strongly prefer canonical pages over compatibility stubs or redirect files.
 - When moving docs, update links to the new destination and remove obsolete
   references.
@@ -98,13 +98,15 @@ This is experimental software:
 
 ## Environment
 
-- Python >= 3.10.
+- Python >= 3.11.
 - Use the repo-local `venv` when it exists. Prefer
   `. venv/bin/activate && <command>` over the system Python for `pytest`,
   `python -m ...`, and related tooling.
 - Tests: `pytest` (config lives in `pyproject.toml` with `testpaths = tests`).
   Run a category with `pytest tests/ssp1/`, `pytest tests/fmi2/`,
   `pytest tests/ls_ref/`, or `pytest tests/tools/`.
+- Lint: `ruff check src tests`; the config is the repo-root `ruff.toml`. Ruff
+  is not in the `[dev]` extra, so install it explicitly when needed.
 
 ## Reading scope
 

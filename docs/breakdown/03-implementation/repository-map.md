@@ -16,21 +16,32 @@ INFO-011, the public surface in INFO-012, and the test strategy in TEST-001.
 
 ```
 tests/
-├── conftest.py                    # Shared fixtures
+├── conftest.py                    # Shared fixtures and level markers
+├── fixtures/                      # Committed SSP/FMU fixtures
+├── support/                       # Fixture guard and fixture builders
 ├── ssp1/
+│   ├── archive/                   # Deterministic archive tests
 │   ├── codec/                     # XML round-trip tests
 │   ├── facade/                    # Public API tests
-│   └── orchestration/             # Archive-aware workflow tests
+│   ├── operations/                # Flatten and FMU-iteration tests
+│   ├── orchestration/             # Archive-aware workflow tests
+│   └── validation/                # SSD and SRMD validation tests
+├── ssp2/
+│   └── facade/                    # SSP2 SSV tests
 ├── common/                       # Common layer tests (reference discovery, etc.)
 ├── fmi2/
 │   ├── archive/                   # FMU workflow tests
 │   ├── codec/                     # ModelDescription codec tests
-│   └── facade/                    # ModelDescription facade tests
+│   ├── facade/                    # ModelDescription facade tests
+│   └── operations/                # Unit-converter tests
+├── fmi3/
+│   └── facade/                    # FMI3 model-description tests
 ├── ls_ref/
 │   ├── codec/                     # LS-REF codec tests
 │   └── facade/                    # LS-REF facade tests
+├── operations/                    # Connection-graph tests
 ├── tools/                         # Schema target, validation, routing tests
-└── test_markers.py                # Level-marker coverage of the suite
+└── test_*.py                      # Level-marker, layout, and fixture-policy checks
 ```
 
 ### Documentation Structure
@@ -42,14 +53,12 @@ docs/
 ├── command_reference.md        # Dev commands (no CLI exists)
 ├── user/
 │   └── python_api.md           # Python API examples
-├── dev/
-│   ├── repo_map.md             # Codebase orientation
-│   ├── code_disposition.md     # Layer-to-file map
-│   ├── architecture.md         # Internal layer boundaries
-│   ├── repo_status.md          # Implementation reality
-│   ├── guidelines.md           # Code/doc conventions
-│   └── requirements.md         # Behavioral requirements
-└── integrations/
-    └── read_the_docs.md        # RTD publishing setup
+└── dev/
+    ├── repo_map.md             # Codebase orientation
+    ├── code_disposition.md     # Layer-to-file map
+    ├── architecture.md         # Internal layer boundaries
+    ├── repo_status.md          # Implementation reality
+    ├── guidelines.md           # Code/doc conventions
+    └── requirements.md         # Behavioral requirements
 ```
 

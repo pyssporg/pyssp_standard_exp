@@ -17,7 +17,6 @@ dev/requirements
 dev/architecture
 dev/repo_status
 dev/guidelines
-integrations/read_the_docs
 ```
 
 ## User Docs
@@ -34,7 +33,3 @@ integrations/read_the_docs
 - [Architecture](dev/architecture.md) for intended internal layer boundaries
 - [Repo status](dev/repo_status.md) for what is currently implemented
 - [Guidelines](dev/guidelines.md) for code and documentation conventions
-
-## Integrations
-
-- [Read the Docs build](integrations/read_the_docs.md) for the documentation publishing setup

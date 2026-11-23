@@ -150,7 +150,12 @@ with FMU("component.fmu", mode="r") as fmu:
         print(len(md.xml.inputs))
 ```
 
-### Creating an FMU from scratch
+### Adding files to an FMU archive
+
+An FMU is valid only when `modelDescription.xml` sits at its root. Supply one
+with `FMU.add_model_description()` or build the whole archive with
+`FMU.create(...)`; `FMU.package(...)` writes a deterministic `.fmu` from a
+model description and inputs.
 
 ```python
 from pathlib import Path

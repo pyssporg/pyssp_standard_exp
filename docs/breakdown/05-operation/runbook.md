@@ -58,7 +58,7 @@ pytest -m level_acceptance  # Reproducibility and compliance evidence
 
 - User docs: `docs/getting_started.md`, `docs/user/python_api.md`
 - Dev docs: `02-architecture/layer-rules.md`, `02-architecture/workflow.md`
-- Build docs locally: see `docs/integrations/read_the_docs.md`
+- Build docs locally: `pip install -e ".[dev]"` then `sphinx-build docs _build`
 
 ## Debugging
 

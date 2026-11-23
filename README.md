@@ -27,16 +27,30 @@ not part of the public API.
 
 ## Install
 
+Requires Python 3.11 or newer (`requires-python` in `pyproject.toml`). The only
+runtime dependency is `lxml`.
+
+From this workspace checkout, install editable with the maintainer tools:
+
+```bash
+pip install -e ".[dev]"
+```
+
+From a standalone checkout or sdist, install the package itself:
+
 ```bash
 pip install .
 ```
 
 ## Quick Start
 
-Read and validate a standalone parameter set:
+Create and validate a standalone parameter set:
 
 ```python
 from pyssp_standard import SSV
+
+with SSV("parameters.ssv", mode="w") as ssv:
+    ssv.add_parameter("Weight", 20.4)
 
 with SSV("parameters.ssv") as ssv:
     assert ssv.check_compliance() is True
@@ -53,12 +67,35 @@ with SSP("system.ssp", mode="r") as ssp:
         print(ssd.xml.name)
 ```
 
+## Tests and Lint
+
+Run the suite from the repository root:
+
+```bash
+pytest
+```
+
+Lint with ruff. The configuration is the repo-root `ruff.toml`; ruff is not in
+the `[dev]` extra, so install it explicitly when needed:
+
+```bash
+pip install ruff
+ruff check src tests
+```
+
+## Examples
+
+There is no `examples/` directory. The runnable snippets in
+[Getting started](docs/getting_started.md) and
+[Python API workflows](docs/user/python_api.md) are the examples.
+
 ## Documentation
 
 - [Docs index](docs/index.md)
 - [Getting started](docs/getting_started.md)
 - [Python API workflows](docs/user/python_api.md)
 - [Command reference](docs/command_reference.md)
+- [Contributor instructions](AGENTS.md)
 - [Product breakdown](docs/breakdown/README.md) — architecture, capabilities, traceability
 - [Code structure](docs/breakdown/03-implementation/code-structure.md)
 - [Quick code lookup](docs/breakdown/03-implementation/interfaces.md)

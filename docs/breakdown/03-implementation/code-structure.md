@@ -51,13 +51,14 @@ src/pyssp_standard/
 │   │   ├── unit_conversion.py   # Base-unit definitions (minimal)
 │   │   └── utils.py
 │   ├── operations/          #   Cross-standard composition
+│   │   ├── connection_graph.py
 │   │   ├── fmi_interfaces.py
 │   │   └── model_description_to_ssd.py
 │   ├── ssp1/                #   [ACTIVE] Full SSP1
 │   │   ├── codec/           #     6 codec modules
 │   │   ├── model/           #     7 model modules
-│   │   ├── operations/      #     5 operation modules
-│   │   └── validation/      #     7 validation modules
+│   │   ├── operations/      #     6 operation modules
+│   │   └── validation/      #     6 validation modules
 │   ├── ssp2/                #   [PARTIAL] SSV only
 │   │   ├── codec/           #     1 codec module
 │   │   ├── model/           #     1 model module
@@ -65,6 +66,7 @@ src/pyssp_standard/
 │   ├── fmi2/                #   [ACTIVE] Full FMI2
 │   │   ├── codec/           #     1 codec module
 │   │   ├── model/           #     1 model module
+│   │   ├── operations/      #     1 operation module (unit converter)
 │   │   └── validation/      #     1 validation module
 │   ├── fmi3/                #   [PARTIAL] Model description only
 │   │   ├── codec/           #     1 codec module
@@ -83,8 +85,7 @@ src/pyssp_standard/
     ├── SSP2/
     ├── FMI2/
     ├── FMI3/
-    ├── SSP-LS-Traceability/
-    └── _shared/
+    └── SSP-LS-Traceability/
 ```
 
 `facades/` and `contracts/__init__.py` are docstring-only: a reader imports a

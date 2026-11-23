@@ -4,10 +4,17 @@ This page is for users who want the fastest path to reading or editing SSP-relat
 
 ## Install
 
-Install the package from the repository root:
+`pyssp_standard` requires Python 3.11 or newer. From the repository root,
+install the package:
 
 ```bash
 pip install .
+```
+
+For development, install it editable with the maintainer tools:
+
+```bash
+pip install -e ".[dev]"
 ```
 
 ## Choose The Right Entry Point

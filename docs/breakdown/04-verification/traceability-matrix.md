@@ -21,12 +21,12 @@ status: current
 | REQ-003 | External .ssv/.ssm resolved in archive | `tests/ssp1/orchestration/test_ssp.py` | Partial (indirect) |
 | REQ-004 | FMU exposes binaries, docs, modelDescription | `tests/fmi2/archive/test_fmu.py` | Full |
 | REQ-005 | Compliance check explicit | All facade tests call `check_compliance()` | Full |
-| REQ-006 | SSV read/create/edit | `tests/ssp1/facade/test_ssv.py`, `tests/ssp1/codec/test_ssv_xml_codec.py` | Full |
+| REQ-006 | SSV read/create/edit | `tests/ssp1/facade/test_ssv_ssp1.py`, `tests/ssp2/facade/test_ssv_ssp2.py` | Full |
 | REQ-007 | SSM read/create/edit | `tests/ssp1/facade/test_ssm.py`, `tests/ssp1/codec/test_ssm_xml_codec.py` | Full |
 | REQ-008 | SSD read/create/edit | `tests/ssp1/facade/test_ssd.py`, `tests/ssp1/codec/test_ssd_xml_codec.py` | Full |
 | REQ-009 | SSB read/create/edit | `tests/ssp1/facade/test_ssb.py`, `tests/ssp1/codec/test_ssb_xml_codec.py` | Full |
-| REQ-010 | SRMD read/create/edit | `tests/ssp1/facade/test_srmd.py`, `tests/ssp1/codec/test_srmd_xml_codec.py` | Full |
-| REQ-011 | FMI2 ModelDescription read/create/edit | `tests/fmi2/facade/test_model_description.py`, `tests/fmi2/codec/test_model_description_xml_codec.py` | Full |
+| REQ-010 | SRMD read/create/edit | `tests/ssp1/facade/test_srmd_ssp1.py`, `tests/ssp1/codec/test_srmd_xml_codec.py` | Full |
+| REQ-011 | FMI2 ModelDescription read/create/edit | `tests/fmi2/facade/test_model_description_fmi2.py`, `tests/fmi2/codec/test_model_description_xml_codec.py` | Full |
 | REQ-012 | LS-REF manifest and experiments | `tests/ls_ref/codec/test_ls_ref_xml_codec.py`, `tests/ls_ref/facade/test_ls_ref.py` | Full |
 | REQ-013 | FMU-to-SSP packaging | `tests/ssp1/orchestration/test_ssp_add_fmu.py` | Full |
 | REQ-014 | Version routing detection | `tests/tools/test_version_routing.py` | Full |
@@ -38,7 +38,7 @@ status: current
 |-------------------|---------------------|--------|
 | DocumentRuntime external reference discovery | REQ-003 | Resolved via integration tests only |
 | Cross-standard validation (FMI→SSP) | Implicit | Risk of silent inconsistency |
-| SSP2/FMI3 standards | None (no impl) | Dead routes in version_routing |
+| SSP2/FMI3 breadth | Partial (SSV-only SSP2, model-description-only FMI3) | Limited coverage outside the implemented subset |
 | Performance/benchmarks | None | Regression risk for large archives |
 
 ## Evidence

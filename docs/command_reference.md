@@ -29,7 +29,7 @@ pytest
 Run one focused test module:
 
 ```bash
-pytest tests/ssp1/facade/test_ssv.py
+pytest tests/ssp1/facade/test_ssv_ssp1.py
 ```
 
 Run one test by name:
@@ -38,11 +38,23 @@ Run one test by name:
 pytest tests/ssp1/orchestration/test_ssp.py -k external_parameter
 ```
 
-## Documentation
+## Lint
 
-Build the documentation locally:
+Lint the package and tests with ruff:
 
 ```bash
+ruff check src tests
+```
+
+The configuration is the repo-root `ruff.toml`. Ruff is not part of the `[dev]`
+extra, so install it with `pip install ruff` when it is not already available.
+
+## Documentation
+
+Build the documentation locally (requires the `[dev]` extra):
+
+```bash
+pip install -e ".[dev]"
 sphinx-build docs _build
 ```
 
@@ -64,6 +76,6 @@ After packaging changes, install the built wheel in a fresh environment and veri
 
 ```bash
 python -m venv /tmp/pyssp_standard_install
-/tmp/pyssp_standard_install/bin/python -m pip install dist/experimental_pyssp_standard-0.9.2.dev0-py3-none-any.whl
+/tmp/pyssp_standard_install/bin/python -m pip install dist/*.whl
 /tmp/pyssp_standard_install/bin/python -c "from pyssp_standard.facades.fmu import FMU; from pyssp_standard import SSD, SSP, SSV"
 ```
