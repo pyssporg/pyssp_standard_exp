@@ -34,7 +34,7 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/pyssporg/experimental_pyssp_standard"
+Homepage = "https://github.com/pyssporg/pyssp_standard_exp"
 
 [tool.setuptools.dynamic]
 version = { attr = "pyssp_standard.__version__" }
