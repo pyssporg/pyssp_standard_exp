@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python API Workflows &mdash; pyssp_standard  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Repo Map" href="../dev/repo_map.html" />
+    <link rel="prev" title="Command Reference" href="../command_reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            pyssp_standard
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command_reference.html">Command Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python API Workflows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#public-entry-points">Public Entry Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-facade-pattern">Common Facade Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssv">SSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssm">SSM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#srmd">SRMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssb">SSB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssd">SSD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssp">SSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#populating-a-design-first-ssp">Populating a design-first SSP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fmu">FMU</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reading-an-fmu">Reading an FMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-files-to-an-fmu-archive">Adding files to an FMU archive</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modeldescription">ModelDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validation">Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/repo_map.html">Repo Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/code_disposition.html">Code Disposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/requirements.html">Requirements Baseline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/repo_status.html">Repo Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/guidelines.html">Guidelines</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyssp_standard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python API Workflows</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/user/python_api.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python-api-workflows">
+<h1>Python API Workflows<a class="headerlink" href="#python-api-workflows" title="Link to this heading"></a></h1>
+<p>This page is for users who want practical Python entry points without reading the full codebase.</p>
+<section id="public-entry-points">
+<h2>Public Entry Points<a class="headerlink" href="#public-entry-points" title="Link to this heading"></a></h2>
+<p>The main user-facing entry points are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SSP</span></code> for archive-level or directory-level SSP workflows</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SSD</span></code> for standalone <code class="docutils literal notranslate"><span class="pre">SystemStructure.ssd</span></code> files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SSM</span></code> for <code class="docutils literal notranslate"><span class="pre">.ssm</span></code> parameter mappings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SSV</span></code> for <code class="docutils literal notranslate"><span class="pre">.ssv</span></code> parameter sets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SRMD</span></code> for <code class="docutils literal notranslate"><span class="pre">.srmd</span></code> simulation resource meta data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SSB</span></code> for <code class="docutils literal notranslate"><span class="pre">.ssb</span></code> signal dictionaries</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FMU</span></code> for <code class="docutils literal notranslate"><span class="pre">.fmu</span></code> archives or unpacked FMU directories</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ModelDescription</span></code> for direct work on <code class="docutils literal notranslate"><span class="pre">modelDescription.xml</span></code></p></li>
+</ul>
+</section>
+<section id="common-facade-pattern">
+<h2>Common Facade Pattern<a class="headerlink" href="#common-facade-pattern" title="Link to this heading"></a></h2>
+<p>The document and archive facades are designed to be used as context managers.</p>
+<p>Typical mode usage is:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mode=&quot;r&quot;</span></code> to inspect existing content without writing changes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mode=&quot;a&quot;</span></code> to edit existing content and persist changes on normal exit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mode=&quot;w&quot;</span></code> to create new content and persist it on normal exit</p></li>
+</ul>
+</section>
+<section id="ssv">
+<h2>SSV<a class="headerlink" href="#ssv" title="Link to this heading"></a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">SSV</span></code> for standalone parameter sets.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyssp_standard</span><span class="w"> </span><span class="kn">import</span> <span class="n">SSV</span>
+
+<span class="k">with</span> <span class="n">SSV</span><span class="p">(</span><span class="s2">&quot;parameters.ssv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ssv</span><span class="p">:</span>
+    <span class="n">ssv</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;tester&quot;</span>
+    <span class="n">ssv</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="n">parname</span><span class="o">=</span><span class="s2">&quot;Weight&quot;</span><span class="p">,</span> <span class="n">ptype</span><span class="o">=</span><span class="s2">&quot;Real&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">20.4</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;kg&quot;</span><span class="p">)</span>
+    <span class="n">ssv</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">add_unit</span><span class="p">(</span><span class="s2">&quot;kg&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;kg&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="ssm">
+<h2>SSM<a class="headerlink" href="#ssm" title="Link to this heading"></a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">SSM</span></code> for parameter mappings.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyssp_standard.facades.ssm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SSM</span><span class="p">,</span> <span class="n">Ssp1Transformation</span>
+
+<span class="k">with</span> <span class="n">SSM</span><span class="p">(</span><span class="s2">&quot;mapping.ssm&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ssm</span><span class="p">:</span>
+    <span class="n">ssm</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">add_mapping</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;target&quot;</span><span class="p">)</span>
+    <span class="n">ssm</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">add_mapping</span><span class="p">(</span>
+        <span class="s2">&quot;scaled_source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;scaled_target&quot;</span><span class="p">,</span>
+        <span class="n">transformation</span><span class="o">=</span><span class="n">Ssp1Transformation</span><span class="p">(</span><span class="s2">&quot;LinearTransformation&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;factor&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}),</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="srmd">
+<h2>SRMD<a class="headerlink" href="#srmd" title="Link to this heading"></a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">SRMD</span></code> for simulation resource meta data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyssp_standard</span><span class="w"> </span><span class="kn">import</span> <span class="n">SRMD</span>
+<span class="k">with</span> <span class="n">SRMD</span><span class="p">(</span><span class="s2">&quot;resources.srmd&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">srmd</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">srmd</span><span class="o">.</span><span class="n">xml</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="ssb">
+<h2>SSB<a class="headerlink" href="#ssb" title="Link to this heading"></a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">SSB</span></code> for signal dictionaries.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyssp_standard</span><span class="w"> </span><span class="kn">import</span> <span class="n">SSB</span>
+<span class="k">with</span> <span class="n">SSB</span><span class="p">(</span><span class="s2">&quot;dictionary.ssb&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ssb</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ssb</span><span class="o">.</span><span class="n">xml</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="ssd">
+<h2>SSD<a class="headerlink" href="#ssd" title="Link to this heading"></a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">SSD</span></code> for standalone system structure files.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyssp_standard</span><span class="w"> </span><span class="kn">import</span> <span class="n">SSD</span>
+
+<span class="k">with</span> <span class="n">SSD</span><span class="p">(</span><span class="s2">&quot;SystemStructure.ssd&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ssd</span><span class="p">:</span>
+    <span class="n">system</span> <span class="o">=</span> <span class="n">ssd</span><span class="o">.</span><span class="n">new_system</span><span class="p">(</span><span class="s2">&quot;system&quot;</span><span class="p">)</span>
+    <span class="n">ssd</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;Demo&quot;</span><span class="p">)</span>
+    <span class="n">ssd</span><span class="o">.</span><span class="n">set_default_experiment</span><span class="p">(</span><span class="n">start_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">stop_time</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="n">component</span> <span class="o">=</span> <span class="n">system</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span>
+        <span class="s2">&quot;component&quot;</span><span class="p">,</span>
+        <span class="n">source</span><span class="o">=</span><span class="s2">&quot;resources/example.fmu&quot;</span><span class="p">,</span>
+        <span class="n">component_type</span><span class="o">=</span><span class="s2">&quot;application/x-fmu-sharedlibrary&quot;</span><span class="p">,</span>
+        <span class="n">implementation</span><span class="o">=</span><span class="s2">&quot;CoSimulation&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">component</span><span class="o">.</span><span class="n">add_connector</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span> <span class="s2">&quot;Real&quot;</span><span class="p">)</span>
+    <span class="n">system</span><span class="o">.</span><span class="n">add_connector</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span> <span class="s2">&quot;Real&quot;</span><span class="p">)</span>
+    <span class="n">system</span><span class="o">.</span><span class="n">add_connection</span><span class="p">(</span>
+        <span class="n">start_element</span><span class="o">=</span><span class="s2">&quot;component&quot;</span><span class="p">,</span> <span class="n">start_connector</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">end_connector</span><span class="o">=</span><span class="s2">&quot;x&quot;</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="ssp">
+<h2>SSP<a class="headerlink" href="#ssp" title="Link to this heading"></a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">SSP</span></code> when the workflow is archive-aware or directory-aware.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyssp_standard</span><span class="w"> </span><span class="kn">import</span> <span class="n">SSP</span>
+
+<span class="k">with</span> <span class="n">SSP</span><span class="p">(</span><span class="s2">&quot;system.ssp&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ssp</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ssp</span><span class="o">.</span><span class="n">resources</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">ssp</span><span class="o">.</span><span class="n">system_structure</span><span class="p">()</span> <span class="k">as</span> <span class="n">ssd</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">ssd</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When you open <code class="docutils literal notranslate"><span class="pre">SystemStructure.ssd</span></code> through <code class="docutils literal notranslate"><span class="pre">SSP</span></code>, external parameter bindings and mappings can be resolved and written back in the same session.</p>
+<section id="populating-a-design-first-ssp">
+<h3>Populating a design-first SSP<a class="headerlink" href="#populating-a-design-first-ssp" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">add_fmu()</span></code> creates a component. When the composition already exists — for
+example because it was exported from SysML before the FMUs were built —
+<code class="docutils literal notranslate"><span class="pre">attach_fmu()</span></code> pairs an FMU with an existing component instead.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyssp_standard</span><span class="w"> </span><span class="kn">import</span> <span class="n">SSP</span>
+
+<span class="k">with</span> <span class="n">SSP</span><span class="p">(</span><span class="s2">&quot;design.ssp&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ssp</span><span class="p">:</span>
+    <span class="n">ssp</span><span class="o">.</span><span class="n">attach_fmu</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;build/CsvSource.fmu&quot;</span><span class="p">)</span>
+    <span class="n">ssp</span><span class="o">.</span><span class="n">validate_fmu_interfaces</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">attach_fmu()</span></code> copies the FMU into <code class="docutils literal notranslate"><span class="pre">resources/</span></code>, points the component’s
+<code class="docutils literal notranslate"><span class="pre">source</span></code> at it, and by default checks that the component’s connector names,
+connector kinds, and implementation match the FMU. <code class="docutils literal notranslate"><span class="pre">validate_fmu_interfaces()</span></code>
+runs the same check for every component whose resource is present; components
+without a resource are skipped.</p>
+</section>
+</section>
+<section id="fmu">
+<h2>FMU<a class="headerlink" href="#fmu" title="Link to this heading"></a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">FMU</span></code> for <code class="docutils literal notranslate"><span class="pre">.fmu</span></code> archives or unpacked FMU directories.</p>
+<section id="reading-an-fmu">
+<h3>Reading an FMU<a class="headerlink" href="#reading-an-fmu" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyssp_standard</span><span class="w"> </span><span class="kn">import</span> <span class="n">FMU</span>
+
+<span class="k">with</span> <span class="n">FMU</span><span class="p">(</span><span class="s2">&quot;component.fmu&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fmu</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fmu</span><span class="o">.</span><span class="n">binaries</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">fmu</span><span class="o">.</span><span class="n">model_description</span> <span class="k">as</span> <span class="n">md</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">model_name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">inputs</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="adding-files-to-an-fmu-archive">
+<h3>Adding files to an FMU archive<a class="headerlink" href="#adding-files-to-an-fmu-archive" title="Link to this heading"></a></h3>
+<p>An FMU is valid only when <code class="docutils literal notranslate"><span class="pre">modelDescription.xml</span></code> sits at its root. Supply one
+with <code class="docutils literal notranslate"><span class="pre">FMU.add_model_description()</span></code> or build the whole archive with
+<code class="docutils literal notranslate"><span class="pre">FMU.create(...)</span></code>; <code class="docutils literal notranslate"><span class="pre">FMU.package(...)</span></code> writes a deterministic <code class="docutils literal notranslate"><span class="pre">.fmu</span></code> from a
+model description and inputs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyssp_standard</span><span class="w"> </span><span class="kn">import</span> <span class="n">FMU</span>
+
+<span class="n">binary</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;my_controller.so&quot;</span><span class="p">)</span>
+<span class="n">binary</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">&quot;(shared library)&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">FMU</span><span class="p">(</span><span class="s2">&quot;controller.fmu&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fmu</span><span class="p">:</span>
+    <span class="n">fmu</span><span class="o">.</span><span class="n">add_binary</span><span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="n">platform</span><span class="o">=</span><span class="s2">&quot;linux64&quot;</span><span class="p">)</span>
+    <span class="n">fmu</span><span class="o">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="modeldescription">
+<h2>ModelDescription<a class="headerlink" href="#modeldescription" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">md.interface_types</span></code> returns the FMI interfaces the model description offers
+(<code class="docutils literal notranslate"><span class="pre">ModelExchange</span></code>, <code class="docutils literal notranslate"><span class="pre">CoSimulation</span></code>, <code class="docutils literal notranslate"><span class="pre">ScheduledExecution</span></code>), across FMI 2 and 3.</p>
+<p><code class="docutils literal notranslate"><span class="pre">md.variable_names</span></code> returns the declared scalar-variable names as a
+<code class="docutils literal notranslate"><span class="pre">frozenset</span></code>, across FMI 2 and 3.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">ModelDescription</span></code> when you already have a direct path to <code class="docutils literal notranslate"><span class="pre">modelDescription.xml</span></code> and do not need FMU archive handling.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyssp_standard</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelDescription</span>
+
+<span class="k">with</span> <span class="n">ModelDescription</span><span class="p">(</span><span class="s2">&quot;modelDescription.xml&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">md</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="validation">
+<h2>Validation<a class="headerlink" href="#validation" title="Link to this heading"></a></h2>
+<p>Standalone document facades support compliance checks:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">SSV</span><span class="p">(</span><span class="s2">&quot;parameters.ssv&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ssv</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">ssv</span><span class="o">.</span><span class="n">check_compliance</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>The same pattern applies to <code class="docutils literal notranslate"><span class="pre">SSM</span></code>, <code class="docutils literal notranslate"><span class="pre">SSD</span></code>, and model description workflows where supported by the facade.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../command_reference.html" class="btn btn-neutral float-left" title="Command Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../dev/repo_map.html" class="btn btn-neutral float-right" title="Repo Map" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guidelines &mdash; pyssp_standard  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Repo Status" href="repo_status.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            pyssp_standard
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command_reference.html">Command Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/python_api.html">Python API Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repo_map.html">Repo Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_disposition.html">Code Disposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements Baseline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repo_status.html">Repo Status</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#core-principles">Core Principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-guidelines">Documentation Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#review-heuristics">Review Heuristics</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyssp_standard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Guidelines</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/dev/guidelines.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guidelines">
+<h1>Guidelines<a class="headerlink" href="#guidelines" title="Link to this heading"></a></h1>
+<section id="core-principles">
+<h2>Core Principles<a class="headerlink" href="#core-principles" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>One source of truth:</strong> Prefer one clear source over multiple partially overlapping descriptions.</p></li>
+<li><p><strong>Simple over flexible:</strong> Prefer simple solutions over flexible-but-complicated ones.</p></li>
+<li><p><strong>Single responsibility:</strong> Keep each module, class, and document focused on one concern.</p></li>
+<li><p><strong>Early separation:</strong> Separate concerns early so complexity does not accumulate in one place.</p></li>
+<li><p><strong>Structure sparingly:</strong> Add structure only when it clearly reduces confusion or duplication.</p></li>
+<li><p><strong>Pure call chains:</strong> Avoid internal monkeypatches or shims.</p></li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><p><strong>Architecture separation-of-concerns rules:</strong> <code class="docutils literal notranslate"><span class="pre">docs/breakdown/02-architecture/layer-rules.md</span></code></p></li>
+<li><p><strong>Design constraints:</strong> <code class="docutils literal notranslate"><span class="pre">docs/breakdown/00-intent/constraints.md</span></code> (Separation of Concerns table)</p></li>
+</ul>
+</section>
+<section id="documentation-guidelines">
+<h2>Documentation Guidelines<a class="headerlink" href="#documentation-guidelines" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Keep documents short and purpose-specific.</p></li>
+<li><p>Avoid repeating the same decision in multiple places; prefer references and links.</p></li>
+<li><p>Let each document answer one main question.</p></li>
+<li><p>Summarize decisions clearly before adding detail.</p></li>
+<li><p>Use examples to explain structure, not to replace the core recommendation.</p></li>
+<li><p>Remove outdated alternatives and stale notes once a direction is chosen.</p></li>
+</ul>
+</section>
+<section id="review-heuristics">
+<h2>Review Heuristics<a class="headerlink" href="#review-heuristics" title="Link to this heading"></a></h2>
+<p>When adding new code or docs, check:</p>
+<ul class="simple">
+<li><p>Is this introducing a second source of truth?</p></li>
+<li><p>Is this repeating logic or explanation that already exists elsewhere?</p></li>
+<li><p>Does this file, class, or document have a single clear purpose?</p></li>
+<li><p>Can this be made smaller or more direct without losing clarity?</p></li>
+<li><p>Is the boundary between responsibilities still obvious?</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="repo_status.html" class="btn btn-neutral float-left" title="Repo Status" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
